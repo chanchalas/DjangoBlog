@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock title %}
+
+{% block content %}
+
+{% for post in posts %}
+
+<div class="card mt-4">
+        <div class="card-header ">
+          <h5>{{post.title}}</h5>
+          <small>Post By : {{post.author|title}}</small>
+          <small>posted : {{post.created_at|timesince}}  ago</small>
+        </div>
+        <div class="card-body">
+          <!-- <h5 class="card-title">Special title treatment</h5> -->
+          <p class="card-text">{{post.content|truncatewords:30}}</p>
+          <a href="{{post.get_absolute_url}}" class="btn btn-outline-dark">Continue reading..</a>
+        </div>
+      </div>
+
+{% endfor %}
+<div class="pagination">
+    <span class="step-links">
+        {% if posts.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ posts.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+        </span>
+
+        {% if posts.has_next %}
+            <a href="?page={{ posts.next_page_number }}">next</a>
+            <a href="?page={{ posts.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+
+{% endblock content %}

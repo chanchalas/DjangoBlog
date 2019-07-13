@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detail
+{% endblock title %}
+
+{% block content %}
+
+<div class="card  mt-4">
+        <div class="card-header">
+          <h5>{{post.title|title}}</h5>
+        </div>
+        <div class="card-body">
+          <p class="card-text">{{post.content|linebreaks}}</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+        <div class="card-footer text-muted">
+          {{post.created_at|timesince}} Ago
+          <button type="button" class="btn btn-link"><a href="{% url 'edit_post' post.pk %}">Edit Post</a></button>
+          <button type="button" class="btn btn-link"><a href="{% url 'delete_post' post.pk %}">Delete Post</a></button>
+
+        </div>
+    
+</div>
+
+
+
+{% endblock content %}
