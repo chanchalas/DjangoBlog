@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import home, detail, create_post,edit_post, delete_post
+from .views import home, detail, create_post,edit_post, delete_post, collapse, modal
 
 urlpatterns = [
     path('',home, name='home'),
@@ -23,4 +23,6 @@ urlpatterns = [
     path('create/',create_post, name='create_post'),
     path('detail/<int:id>/edit/',edit_post, name='edit_post'),
     path('detail/<int:id>/delete/',delete_post, name='delete_post'),
+    path('collapse/',collapse, name='collapse'),
+    path('modal/',modal, name='modal'),
 ]

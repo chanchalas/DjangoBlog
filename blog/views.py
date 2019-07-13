@@ -58,3 +58,14 @@ def delete_post(request,id):
                 return redirect('home')   
         context = {'post':post}  
         return render(request,'delete.html',context)
+
+
+def collapse(request):
+        posts = BlogPost.objects.all()
+        context = {'posts':posts}
+        return render(request, 'collapse.html', context)
+
+def modal(request):
+        posts = BlogPost.objects.all()
+        context = {'posts':posts}
+        return render(request, 'modal.html', context)
