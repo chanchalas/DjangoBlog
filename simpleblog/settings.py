@@ -25,7 +25,7 @@ SECRET_KEY = '!eql)$)i5z-wl^@l2)dabuav3r*hr@$9+-d)33wnlxnu3surpu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['chanchala.herokuapp.com']
 
 
 # Application definition
